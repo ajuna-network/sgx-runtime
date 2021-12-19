@@ -31,6 +31,7 @@
 use frame_system::EnsureRoot;
 use pallet_transaction_payment::CurrencyAdapter;
 use sp_api::impl_runtime_apis;
+use sp_core::OpaqueMetadata;
 use sp_runtime::{
 	create_runtime_str, generic,
 	traits::{AccountIdLookup, BlakeTwo256, Block as BlockT, IdentifyAccount, Verify},
@@ -144,6 +145,7 @@ pub const VERSION: RuntimeVersion = RuntimeVersion {
 	impl_version: 1,
 	apis: RUNTIME_API_VERSIONS,
 	transaction_version: 1,
+	state_version: 0,
 };
 
 pub const MILLISECS_PER_BLOCK: u64 = 6000;
@@ -338,4 +340,11 @@ impl_runtime_apis! {
 			Executive::initialize_block(header)
 		}
 	}
+
+	impl sp_api::Metadata<Block> for Runtime {
+		fn metadata() -> OpaqueMetadata {
+			OpaqueMetadata::new(Runtime::metadata().into())
+		}
+	}
+
 }
