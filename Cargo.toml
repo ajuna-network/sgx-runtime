@@ -11,8 +11,11 @@ members = [
 sgx_tstd = { version = "1.1.4", git = "https://github.com/haerdib/incubator-teaclave-sgx-sdk", branch = "master"}
 sgx_types = { version = "1.1.4", git = "https://github.com/haerdib/incubator-teaclave-sgx-sdk", branch = "master"}
 
-#[patch."https://github.com/integritee-network/pallets.git"]
-#pallet-parentchain = { path = '../pallets/parentchain' }
+[patch."https://github.com/ajuna-network/ajuna-node.git"]
+pallet-ajuna-connectfour = { path = "../ajuna-node/pallets/ajuna-connectfour" }
+
+[patch."ttps://github.com/integritee-network/pallets.git"]
+pallet-parentchain = { path = "../../integritee/pallets/parentchain" }
 
 
 [profile.release]
