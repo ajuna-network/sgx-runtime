@@ -48,11 +48,8 @@ sp-version = { version = "4.0.0-dev", default-features = false, git = "https://g
 pallet-parentchain = { default-features = false, git = "https://github.com/integritee-network/pallets.git", branch = "master" }
 
 # Ajuna dependencies
-pallet-ajuna-connectfour = { default-features = false, git = "https://github.com/ajuna-network/ajuna-node.git", branch = "update-substrate" }
+pallet-ajuna-connectfour = { default-features = false, git = "https://github.com/ajuna-network/ajuna-node.git", branch = "darkfriend77/integritee" }
 pallet-scheduler = { version = "4.0.0-dev", default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "master" }
-
-[patch."https://github.com/ajuna-network/ajuna-node.git"]
-pallet-ajuna-connectfour = { path = "../../ajuna-node/pallets/ajuna-connectfour" }
 
 
 [features]
@@ -75,16 +72,17 @@ std = [
     'frame-support/std',
     'frame-system/std',
     'frame-system-rpc-runtime-api/std',
+    'pallet-ajuna-connectfour/std',
     'pallet-aura/std',
     'pallet-balances/std',
-    'pallet-ajuna-connectfour/std',
     'pallet-grandpa/std',
+    'pallet-parentchain/std',
     'pallet-randomness-collective-flip/std',
+    'pallet-scheduler/std',
     'pallet-sudo/std',
     'pallet-timestamp/std',
     'pallet-transaction-payment/std',
     'pallet-transaction-payment-rpc-runtime-api/std',
-    'pallet-parentchain/std',
     'sp-api/std',
     'sp-block-builder/std',
     'sp-consensus-aura/std',
