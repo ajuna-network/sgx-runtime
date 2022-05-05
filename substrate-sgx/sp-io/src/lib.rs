@@ -406,7 +406,7 @@ pub mod trie {
 	}
 
 	/// Verify trie proof
-	fn blake2_256_verify_proof_version_1(
+	pub fn blake2_256_verify_proof_version_1(
 		root: H256,
 		proof: &[Vec<u8>],
 		key: &[u8],
