@@ -155,7 +155,7 @@ pub mod storage {
 	}
 
 	/// Clear the storage of each key-value pair where the key starts with the given `prefix`.
-	fn clear_prefix_version_1(prefix: &[u8]) {
+	pub fn clear_prefix_version_1(prefix: &[u8]) {
 		warn!("storage::clear_prefix() unimplemented");
 	}
 
@@ -406,7 +406,7 @@ pub mod trie {
 	}
 
 	/// Verify trie proof
-	fn blake2_256_verify_proof_version_1(
+	pub fn blake2_256_verify_proof_version_1(
 		root: H256,
 		proof: &[Vec<u8>],
 		key: &[u8],
@@ -417,7 +417,7 @@ pub mod trie {
 	}
 
 	/// Verify trie proof
-	fn blake2_256_verify_proof(
+	pub fn blake2_256_verify_proof(
 		root: H256,
 		proof: &[Vec<u8>],
 		key: &[u8],
@@ -429,7 +429,7 @@ pub mod trie {
 	}
 
 	/// Verify trie proof
-	fn keccak_256_verify_proof_version_1(
+	pub fn keccak_256_verify_proof_version_1(
 		root: H256,
 		proof: &[Vec<u8>],
 		key: &[u8],
@@ -440,7 +440,7 @@ pub mod trie {
 	}
 
 	/// Verify trie proof
-	fn keccak_256_verify_proof(
+	pub fn keccak_256_verify_proof(
 		root: H256,
 		proof: &[Vec<u8>],
 		key: &[u8],
@@ -716,12 +716,12 @@ pub mod hashing {
 pub mod transaction_index {
 	use super::*;
 	/// Add transaction index. Returns indexed content hash.
-	fn index(extrinsic: u32, size: u32, context_hash: [u8; 32]) {
+	pub fn index(extrinsic: u32, size: u32, context_hash: [u8; 32]) {
 		warn!("transaction_index::index unimplemented");
 	}
 
 	/// Conduct a 512-bit Keccak hash.
-	fn renew(extrinsic: u32, context_hash: [u8; 32]) {
+	pub fn renew(extrinsic: u32, context_hash: [u8; 32]) {
 		warn!("transaction_index::renew unimplemented");
 	}
 }
