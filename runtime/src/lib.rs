@@ -302,8 +302,10 @@ impl pallet_scheduler::Config for Runtime {
 }
 
 use pallet_ajuna_board::guessing::MockGame;
-
-impl pallet_ajuna_board::Config for Test {
+parameter_types! {
+	pub const MaxNumberOfPlayers: u8 = 2;
+}
+impl pallet_ajuna_board::Config for Runtime {
 	type Event = Event;
 	type BoardId = u32;
 	type PlayersTurn = u32;
