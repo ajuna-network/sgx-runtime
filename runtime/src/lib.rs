@@ -305,12 +305,13 @@ use pallet_ajuna_board::guessing::MockGame;
 parameter_types! {
 	pub const MaxNumberOfPlayers: u8 = 2;
 }
+
 impl pallet_ajuna_board::Config for Runtime {
 	type Event = Event;
 	type BoardId = u32;
 	type PlayersTurn = u32;
-	type GameState = pallet_ajuna_board::guessing::GameState;
-	type Game = MockGame;
+	type GameState = pallet_ajuna_board::guessing::GameState<AccountId>;
+	type Game = MockGame<AccountId>;
 	type MaxNumberOfPlayers = MaxNumberOfPlayers;
 }
 
@@ -328,7 +329,7 @@ construct_runtime!(
 		Parentchain: pallet_parentchain::{Pallet, Call, Storage},
 		RandomnessCollectiveFlip: pallet_randomness_collective_flip::{Pallet, Storage},
 		Scheduler: pallet_scheduler::{Pallet, Call, Storage, Event<T>},
-		AjunaBoard: pallet_ajuna_board::{Pallet, Call, Config<T>, Storage, Event<T>},
+		AjunaBoard: pallet_ajuna_board::{Pallet, Call, Storage, Event<T>},
 	}
 );
 
