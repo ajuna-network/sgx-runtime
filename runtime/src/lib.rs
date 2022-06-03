@@ -51,7 +51,7 @@ pub use frame_support::{
 	},
 	StorageValue,
 };
-pub use pallet_ajuna_connectfour::Call as ConnectfourCall;
+pub use pallet_ajuna_board::Call as AjunaBoardCall;
 pub use pallet_balances::Call as BalancesCall;
 pub use pallet_parentchain::Call as ParentchainCall;
 pub use pallet_timestamp::Call as TimestampCall;
@@ -301,12 +301,15 @@ impl pallet_scheduler::Config for Runtime {
 	type NoPreimagePostponement = ();
 }
 
-impl pallet_ajuna_connectfour::Config for Runtime {
-	type Proposal = Call;
+use pallet_ajuna_board::guessing::MockGame;
+
+impl pallet_ajuna_board::Config for Test {
 	type Event = Event;
-	type Randomness = RandomnessCollectiveFlip;
-	type Scheduler = Scheduler;
-	type PalletsOrigin = OriginCaller;
+	type BoardId = u32;
+	type PlayersTurn = u32;
+	type GameState = pallet_ajuna_board::guessing::GameState;
+	type Game = MockGame;
+	type MaxNumberOfPlayers = MaxNumberOfPlayers;
 }
 
 construct_runtime!(
@@ -323,7 +326,7 @@ construct_runtime!(
 		Parentchain: pallet_parentchain::{Pallet, Call, Storage},
 		RandomnessCollectiveFlip: pallet_randomness_collective_flip::{Pallet, Storage},
 		Scheduler: pallet_scheduler::{Pallet, Call, Storage, Event<T>},
-		ConnectFour: pallet_ajuna_connectfour::{Pallet, Call, Config<T>, Storage, Event<T>},
+		AjunaBoard: pallet_ajuna_board::{Pallet, Call, Config<T>, Storage, Event<T>},
 	}
 );
 
