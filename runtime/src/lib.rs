@@ -306,10 +306,11 @@ parameter_types! {
 	pub const MaxNumberOfPlayers: u8 = 2;
 }
 
+pub type BoardId = u32;
 impl pallet_ajuna_board::Config for Runtime {
 	type Event = Event;
-	type BoardId = u32;
-	type PlayersTurn = u32;
+	type BoardId = BoardId;
+	type PlayersTurn = pallet_ajuna_board::guessing::Guess;
 	type GameState = pallet_ajuna_board::guessing::GameState<AccountId>;
 	type Game = MockGame<AccountId>;
 	type MaxNumberOfPlayers = MaxNumberOfPlayers;
