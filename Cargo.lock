@@ -50,7 +50,7 @@ dependencies = [
 [[package]]
 name = "ajuna-common"
 version = "0.1.0"
-source = "git+https://github.com/ajuna-network/Ajuna.git?rev=polkadot-v0.9.20-dev#028534df8156c49171b4119fac50cdf455f5b576"
+source = "git+https://github.com/ajuna-network/Ajuna.git?branch=ab/remove-onidle-hook-expiry#c645fb2d3e6a9575ca5d7c46c38fdbf6a7eefab9"
 dependencies = [
  "frame-support",
  "parity-scale-codec",
@@ -1278,7 +1278,7 @@ checksum = "624a8340c38c1b80fd549087862da4ba43e08858af025b236e509b6649fc13d5"
 [[package]]
 name = "pallet-ajuna-board"
 version = "0.1.0"
-source = "git+https://github.com/ajuna-network/Ajuna.git?rev=polkadot-v0.9.20-dev#028534df8156c49171b4119fac50cdf455f5b576"
+source = "git+https://github.com/ajuna-network/Ajuna.git?branch=ab/remove-onidle-hook-expiry#c645fb2d3e6a9575ca5d7c46c38fdbf6a7eefab9"
 dependencies = [
  "ajuna-common",
  "dot4gravity",
